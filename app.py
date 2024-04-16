@@ -1,7 +1,6 @@
 from flask import Flask
 from EndPoints.endpoints import setup_endpoints
 from flask_jwt_extended import JWTManager
-import mysql.connector
 import os
 import mysql.connector
 from mysql.connector import Error
@@ -43,3 +42,5 @@ setup_endpoints(app, jwt, db)
 if __name__ == '__main__':
     #Starts flask
     app.run(debug=True)
+
+#test
