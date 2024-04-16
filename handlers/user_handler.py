@@ -7,7 +7,7 @@ def GetDetails(user_id, db):
         result = cursor.fetchone()
 
     if result:
-        return jsonify({'Username': result[1], 'Email': result[3], 'TopPubs': result[4], 'TopPints': result[5]})
+        return jsonify({'userName': result[1], 'email': result[3], 'topPubs': result[4], 'topPints': result[5]})
     else:
         return jsonify({'message': 'User not found'}), 404
 

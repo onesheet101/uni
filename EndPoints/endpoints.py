@@ -46,7 +46,7 @@ def setup_endpoints(app, jwt, db):
             update_password(username, hashed_password, db)
             return jsonify({'message': 'Password change successful'}), 200
 
-        return jsonify({'message': 'Invalid username or password'}), 401
+        return jsonify({'error': 'Invalid username or password'}), 401
 
     @app.route('/register', methods=['POST'])
     def register():
@@ -82,10 +82,10 @@ def setup_endpoints(app, jwt, db):
     @app.route('/user-details', methods=['GET'])
     def get_user_details():
         data = request.get_json()
-        user_id = data.get('UserID')
+        user_id = data.get('user_id')
         return GetDetails(user_id, db)
 
-    @app.route('/user/add', methods=['POST'])
+    @app.route('/user-add', methods=['POST'])
     def add_user_details():
         data = request.get_json()
         username = data.get('username')
